@@ -20,7 +20,7 @@ class Bot:
 
 
   def eat_log(self, log):
-    """ Om nom nom nom, dem logs are tasty """"
+    """ Om nom nom nom, dem logs are tasty """
 
     if log.find(' PRIVMSG ') != -1:
       nick = log.split('!')[0][1:]
@@ -35,7 +35,7 @@ class Bot:
 
 
   def handle_message(self, nick, chan, msg):
-    """ Handles regular message with responses out of the dictionary """"
+    """ Handles regular message with responses out of the dictionary """
 
     for entry in self.dictionary:
 
