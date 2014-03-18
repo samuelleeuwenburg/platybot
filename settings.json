@@ -1,0 +1,38 @@
+{
+  "test": "33",
+  "connection": {
+    "server": "irc.rizon.net"
+  },
+  "bot": {
+    "nick": "Platybot",
+    "mentors": [
+      "Samuel"
+    ],
+    "channels": [
+      "#karmapolice"
+    ],
+    "dictionary": [
+      {
+        "matches": [
+          "hi {{self}}",
+          "ey {{self}}",
+          "hello {{self}}",
+          "hey {{self}}",
+          "ola {{self}}"
+        ],
+        "response": "Hello, {{sender}}"
+      },
+      {
+        "matches": [
+          "how are you {{self}}",
+          "{{self}}: how are you",
+          "everything alright {{self}}",
+          "{{self}}: everything alright",
+          "you ok {{self}}",
+          "{{self}}: you ok"
+        ],
+        "response": "{{sender}}: No idea really."
+      }
+    ]
+  }
+}
