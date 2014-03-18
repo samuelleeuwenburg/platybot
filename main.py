@@ -1,3 +1,11 @@
+#!/usr/bin/env
+
+"""
+Platybot - An IRC bot,
+Written by Samuel Leeuwenburg,
+Used for experimentation with Python
+"""
+
 from connection import Connection
 from bot import Bot
 import json
@@ -12,7 +20,7 @@ def main():
   conn.connect()
 
   bot = Bot(conn, settings['bot'])
-  
+
   while True:
     log = conn.log()
 
@@ -21,5 +29,5 @@ def main():
       print(log)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
   main()

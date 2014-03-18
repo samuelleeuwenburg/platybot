@@ -1,15 +1,16 @@
 {
-  "test": "33",
   "connection": {
     "server": "irc.rizon.net"
   },
   "bot": {
     "nick": "Platybot",
+    "user": "Platybot Platybot Platybot : Platybot With Electrolocating Powers!\n",
     "mentors": [
       "Samuel"
     ],
     "channels": [
-      "#karmapolice"
+      "#karmapolice",
+      "#scriptkitties"
     ],
     "dictionary": [
       {
