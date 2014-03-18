@@ -1,10 +1,16 @@
 import socket
+import json
 
 class Connection:
 
-  def __init__(self, settings):
-    self.server = settings['server']
+  def __init__(self):
+    f = open('config.json')
+    self.config = json.loads(f.read())
+    f.close()
+
+    self.server = self.config['server']
     self.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 
   def connect(self):
     self.conn.connect((self.server, 6667))

@@ -1,0 +1,16 @@
+{
+  "server": "irc.freenode.net",
+  "sudoCommand": "plat",
+  "channels": [
+    "#example"
+  ],
+  "mentors": [
+    "Samuel"
+  ],
+  "apiKeys": [
+    {
+      "name": "apiService",
+      "key": "example123"
+    }
+  ]
+}

@@ -1,39 +1,27 @@
 {
-  "connection": {
-    "server": "irc.rizon.net"
-  },
-  "bot": {
-    "nick": "Platybot",
-    "user": "Platybot Platybot Platybot : Platybot With Electrolocating Powers!\n",
-    "mentors": [
-      "Samuel"
-    ],
-    "channels": [
-      "#karmapolice",
-      "#scriptkitties"
-    ],
-    "dictionary": [
-      {
-        "matches": [
-          "hi {{self}}",
-          "ey {{self}}",
-          "hello {{self}}",
-          "hey {{self}}",
-          "ola {{self}}"
-        ],
-        "response": "Hello, {{sender}}"
-      },
-      {
-        "matches": [
-          "how are you {{self}}",
-          "{{self}}: how are you",
-          "everything alright {{self}}",
-          "{{self}}: everything alright",
-          "you ok {{self}}",
-          "{{self}}: you ok"
-        ],
-        "response": "{{sender}}: No idea really."
-      }
-    ]
-  }
+  "nick": "Platybot",
+  "user": "Platybot Platybot Platybot : Platybot With Electrolocating Powers!\n",
+  "dictionary": [
+    {
+      "matches": [
+        "hi {{self}}",
+        "ey {{self}}",
+        "hello {{self}}",
+        "hey {{self}}",
+        "ola {{self}}"
+      ],
+      "response": "Hello, {{sender}}"
+    },
+    {
+      "matches": [
+        "how are you {{self}}",
+        "{{self}}: how are you",
+        "everything alright {{self}}",
+        "{{self}}: everything alright",
+        "you ok {{self}}",
+        "{{self}}: you ok"
+      ],
+      "response": "{{sender}}: No idea really."
+    }
+  ]
 }

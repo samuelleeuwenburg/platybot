@@ -1,16 +1,25 @@
 import re
+import json
 
 class Bot:
 
-  def __init__(self, conn, settings):
+  def __init__(self, conn):
+    f = open('settings.json')
+    self.settings = json.loads(f.read())
+    f.close()
+
+    f = open('config.json')
+    self.config = json.loads(f.read())
+    f.close()
+
+    self.channels = self.config['channels']
+    self.dictionary = self.settings['dictionary']
+
     self.conn = conn
 
-    self.user = settings['user']
-    self.nick = settings['nick']
-    self.sudo_command = 'plat'
-
-    self.channels = settings['channels']
-    self.dictionary = settings['dictionary']
+    self.user = self.settings['user']
+    self.nick = self.settings['nick']
+    self.sudo_command = self.config['sudoCommand']
 
     conn.set_user(self.user)
     conn.set_nick(self.nick)

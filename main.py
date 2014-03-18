@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env python2.7
 
 """
 Platybot - An IRC bot,
@@ -8,18 +8,13 @@ Used for experimentation with Python
 
 from connection import Connection
 from bot import Bot
-import json
-
 
 def main():
-  f = open('settings.json')
-  settings = json.loads(f.read())
-  f.close()
 
-  conn = Connection(settings['connection'])
+  conn = Connection()
   conn.connect()
 
-  bot = Bot(conn, settings['bot'])
+  bot = Bot(conn)
 
   while True:
     log = conn.log()
