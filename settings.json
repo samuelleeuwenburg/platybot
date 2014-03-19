@@ -45,6 +45,7 @@
     {
       "matches": [
         ":P",
+        ":p",
         "haha",
         "hahaha"
       ],
@@ -84,6 +85,13 @@
         "yaay"
       ],
       "response": ":D"
+    },
+    {
+      "matches": [
+        ":(",
+        ":'("
+      ],
+      "response": ":'("
     }
   ]
 }

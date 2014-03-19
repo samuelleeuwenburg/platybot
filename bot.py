@@ -36,6 +36,8 @@ class Bot:
     self.commandModules.append(tmdb.MovieCommands())
 
 
+
+
   def eat_log(self, log):
     """ Om nom nom nom, dem logs are tasty """
 
@@ -49,6 +51,8 @@ class Bot:
         self.handle_command(nick, chan, msg)
       else:
         self.handle_message(nick, chan, msg)
+
+
 
 
   def handle_message(self, nick, chan, msg):
@@ -68,12 +72,14 @@ class Bot:
           time.sleep(5)
           self.conn.send_message(chan, response)
 
+
+
   def handle_command(self, nick, chan, msg):
     """ Handles commands, based on all command modules registered """
 
     for module in self.commandModules:
       if msg.startswith(self.sudo_command + ' ' + module.command):
-        module.handleCommand(self.conn, nick, chan, msg)
+        module.handle_command(self.conn, nick, chan, msg)
         return
 
     response = nick + ': what?'
