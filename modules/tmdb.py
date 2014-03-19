@@ -34,6 +34,12 @@ class MovieCommands:
 
     first_entry = data['results'][0]
 
-    response = 'I found this for you %s: %s - release date: %s average rating: %s (from %s votes) - data by www.themoviedb.org' % (nick, first_entry['title'], first_entry['release_date'], first_entry['vote_average'], first_entry['vote_count'])
+    response = []
+    response.append('I found this for you %s: ' % (nick))
+    response.append(first_entry['title'])
+    response.append('Release date: %s' % (first_entry['release_date']))
+    response.append('Average rating: %s (from %s votes)'% (first_entry['vote_average'], first_entry['vote_count']))
+    response.append('Data by www.themoviedb.org API')
 
-    conn.send_message(chan, response)
+    for line in response:
+      conn.send_message(chan, line)

@@ -40,8 +40,8 @@ class Bot:
 
     if log.find(' PRIVMSG ') != -1:
       nick = log.split('!')[0][1:]
-      chan = log.split(' PRIVMSG ')[-1].split(" :")[0]
-      msg = log.split(' PRIVMSG ')[-1].split(':')[-1]
+      chan = log.split(' PRIVMSG ')[-1].split(" :", 1)[0]
+      msg = log.split(' PRIVMSG ')[-1].split(':', 1)[-1]
 
       # determine if the sudo command is being used, and act accordingly
       if msg.split(' ', 1)[0] == self.sudo_command:
@@ -59,7 +59,7 @@ class Bot:
         check = match.replace('{{self}}', self.nick)
 
         # remove all strange characters when checking with the dictionary
-        if re.sub('[!@#$]', '', msg) == check:
+        if re.sub('[!?@#$,.]', '', msg) == check:
 
           response = entry['response'].replace('{{sender}}', nick)
           self.conn.send_message(chan, response)
