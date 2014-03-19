@@ -1,6 +1,8 @@
 import re
 import json
 
+from modules import tmdb
+
 class Bot:
 
   def __init__(self, conn):
@@ -27,6 +29,11 @@ class Bot:
     for channel in self.channels:
       conn.join_channel(channel)
 
+    # Add all commands into an array for easy checkups
+    self.commandList = []
+
+    self.commandList.append(tmdb.MovieCommands())
+
 
   def eat_log(self, log):
     """ Om nom nom nom, dem logs are tasty """
@@ -38,7 +45,7 @@ class Bot:
 
       # determine if the sudo command is being used, and act accordingly
       if msg.split(' ', 1)[0] == self.sudo_command:
-        self.handle_command(nick, chan, msg.split(' ', 1)[0])
+        self.handle_command(nick, chan, msg)
       else:
         self.handle_message(nick, chan, msg)
 
@@ -59,6 +66,11 @@ class Bot:
 
   def handle_command(self, nick, chan, msg):
     """ Handles commands, still in progress """
+
+    for command in self.commandList:
+      if msg.startswith(self.sudo_command + ' ' + command.trigger):
+        command.handleCommand(self.conn, nick, chan, msg)
+        return
 
     response = nick + ': what?'
     self.conn.send_message(chan, response)
