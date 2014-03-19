@@ -1,5 +1,6 @@
 import re
 import json
+import time
 
 from modules import tmdb
 
@@ -30,9 +31,9 @@ class Bot:
       conn.join_channel(channel)
 
     # Add all commands into an array for easy checkups
-    self.commandList = []
+    self.commandModules = []
 
-    self.commandList.append(tmdb.MovieCommands())
+    self.commandModules.append(tmdb.MovieCommands())
 
 
   def eat_log(self, log):
@@ -62,14 +63,17 @@ class Bot:
         if re.sub('[!?@#$,.]', '', msg) == check:
 
           response = entry['response'].replace('{{sender}}', nick)
+
+          # sleep / "think" / "type" for a while..
+          time.sleep(5)
           self.conn.send_message(chan, response)
 
   def handle_command(self, nick, chan, msg):
-    """ Handles commands, still in progress """
+    """ Handles commands, based on all command modules registered """
 
-    for command in self.commandList:
-      if msg.startswith(self.sudo_command + ' ' + command.trigger):
-        command.handleCommand(self.conn, nick, chan, msg)
+    for module in self.commandModules:
+      if msg.startswith(self.sudo_command + ' ' + module.command):
+        module.handleCommand(self.conn, nick, chan, msg)
         return
 
     response = nick + ': what?'

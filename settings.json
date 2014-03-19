@@ -56,7 +56,8 @@
         "bye",
         "cya",
         "cya later",
-        "im off"
+        "im off",
+        "gotta go"
       ],
       "response": "Bye bye!"
     },
@@ -83,13 +84,6 @@
         "yaay"
       ],
       "response": ":D"
-    },
-    {
-      "matches": [
-        "nice",
-        "nice nice"
-      ],
-      "response": "nice"
     }
   ]
 }

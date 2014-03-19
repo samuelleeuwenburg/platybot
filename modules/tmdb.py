@@ -4,7 +4,7 @@ import json
 class MovieCommands:
   def __init__(self):
     self.name = 'tmdb'
-    self.trigger = 'movie info '
+    self.command = 'movie'
 
     f = open('./config.json')
     self.config = json.loads(f.read())
@@ -19,15 +19,15 @@ class MovieCommands:
 
   def handleCommand(self, conn, nick, chan, msg):
 
-    cmd = msg.split(self.trigger)[1]
+    cmd = msg.split(self.command)[1]
 
-    if cmd.startswith('about'):
+    if cmd.startswith('search'):
       self.search_movie(conn, nick, chan, msg)
 
 
   def search_movie(self, conn, nick, chan, msg):
 
-    cmd = msg.split('about ')[1]
+    cmd = msg.split('search ')[1]
 
     response = urllib2.urlopen('http://api.themoviedb.org/3/search/movie?query=' + cmd.replace(' ', '%20') + '&api_key=' + self.apiKey)
     data = json.load(response)
@@ -35,7 +35,7 @@ class MovieCommands:
     first_entry = data['results'][0]
 
     response = []
-    response.append('I found this for you %s: ' % (nick))
+    response.append('I found this %s, ' % (nick))
     response.append(first_entry['title'])
     response.append('Release date: %s' % (first_entry['release_date']))
     response.append('Average rating: %s (from %s votes)'% (first_entry['vote_average'], first_entry['vote_count']))
