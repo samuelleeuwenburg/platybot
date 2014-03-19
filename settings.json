@@ -15,13 +15,71 @@
     {
       "matches": [
         "how are you {{self}}",
-        "{{self}}: how are you",
+        "{{self}} how are you",
         "everything alright {{self}}",
-        "{{self}}: everything alright",
+        "{{self}} everything alright",
         "you ok {{self}}",
-        "{{self}}: you ok"
+        "{{self}} you ok",
+        "you cool {{self}}",
+        "{{self}} you cool"
       ],
       "response": "{{sender}}: No idea really."
+    },
+    {
+      "matches": [
+        "stfu {{self}}",
+        "{{self}} stfu",
+        "shut up {{self}}",
+        "{{self}} shut up"
+      ],
+      "response": "You shut up {{sender}}!"
+    },
+    {
+      "matches": [
+        "wtf",
+        "dafuq",
+        "wow"
+      ],
+      "response": "Wtf"
+    },
+    {
+      "matches": [
+        "haha",
+        "hahaha"
+      ],
+      "response": ":P"
+    },
+    {
+      "matches": [
+        "bb",
+        "bye",
+        "cya",
+        "cya later",
+        "im off"
+      ],
+      "response": "Bye bye!"
+    },
+    {
+      "matches": [
+        "D:",
+        "oh no"
+      ],
+      "repsonse": "D:"
+    },
+    {
+      "matches": [
+        "^^",
+        "-^",
+        "^-"
+      ],
+      "response": "^^"
+    },
+    {
+      "matches": [
+        "yay",
+        "yaay"
+      ],
+      "response": ":D"
     }
   ]
 }
