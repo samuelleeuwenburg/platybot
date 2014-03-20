@@ -14,6 +14,16 @@
     },
     {
       "matches": [
+        "hi plat",
+        "ey plat",
+        "hello plat",
+        "hey plat",
+        "ola plat"
+      ],
+      "response": "Hi, {{sender}}"
+    },
+    {
+      "matches": [
         "how are you {{self}}",
         "{{self}}: how are you",
         "everything alright {{self}}",

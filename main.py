@@ -17,6 +17,7 @@ def main():
   bot = Bot(conn)
 
   while True:
+    bot.update_loop()
     log = conn.log()
 
     if log:

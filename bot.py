@@ -1,8 +1,7 @@
-import re
 import json
-import time
 
 from modules import tmdb
+from modules import communication
 
 class Bot:
 
@@ -16,7 +15,6 @@ class Bot:
     f.close()
 
     self.channels = self.config['channels']
-    self.dictionary = self.settings['dictionary']
 
     self.conn = conn
 
@@ -30,11 +28,12 @@ class Bot:
     for channel in self.channels:
       conn.join_channel(channel)
 
+    self.communication = communication.Communication(self.conn)
+
     # Add all commands into an array for easy checkups
-    self.commandModules = []
+    self.command_modules = []
 
-    self.commandModules.append(tmdb.MovieCommands())
-
+    self.command_modules.append(tmdb.MovieCommands())
 
 
 
@@ -53,31 +52,20 @@ class Bot:
         self.handle_message(nick, chan, msg)
 
 
+  def update_loop(self):
+    self.communication.reply_loop()
 
 
   def handle_message(self, nick, chan, msg):
-    """ Handles regular message with responses out of the dictionary """
-
-    for entry in self.dictionary:
-
-      for match in entry['matches']:
-        check = match.replace('{{self}}', self.nick)
-
-        # remove all strange characters when checking with the dictionary
-        if re.sub('[!?@#$,.]', '', msg) == check:
-
-          response = entry['response'].replace('{{sender}}', nick)
-
-          # sleep / "think" / "type" for a while..
-          time.sleep(5)
-          self.conn.send_message(chan, response)
+    """ Handles regular message by passing them to the communications module """
+    self.communication.handle_message(nick, chan, msg)
 
 
 
   def handle_command(self, nick, chan, msg):
     """ Handles commands, based on all command modules registered """
 
-    for module in self.commandModules:
+    for module in self.command_modules:
       if msg.startswith(self.sudo_command + ' ' + module.command):
         module.handle_command(self.conn, nick, chan, msg)
         return
