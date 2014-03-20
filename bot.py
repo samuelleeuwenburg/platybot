@@ -53,7 +53,7 @@ class Bot:
 
 
   def update_loop(self):
-    self.communication.reply_loop()
+    self.communication.response_loop()
 
 
   def handle_message(self, nick, chan, msg):

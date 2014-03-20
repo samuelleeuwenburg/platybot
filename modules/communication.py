@@ -15,37 +15,82 @@ class Communication:
     self.nick = self.settings['nick']
     self.conn = conn
 
-    self.reply_stack = []
+    self.response_stack = []
+    self.last_reply_per_channel = {}
 
 
-  def reply_loop(self):
+  def response_loop(self):
     ''' loop through the reply stack and determine if a message is ready to be send '''
 
     now = time.time()
 
-    for reply in list(self.reply_stack):
+    for response in list(self.response_stack):
 
-      if reply['timestamp'] < now:
-        self.conn.send_message(reply['channel'], reply['content'])
-        self.reply_stack.remove(reply)
+      if response['timestamp'] < now:
+        # respond
+        self.conn.send_message(response['channel'], response['content'])
+
+        # remove from the stack
+        self.response_stack.remove(response)
+
+        # add to last messages dict
+        self.last_reply_per_channel[response['channel']] = response['content']
 
 
   def handle_message(self, nick, chan, msg):
     ''' Handle message and add (optional) response to the reply_stack '''
 
+    # check the message
+    response = self.check_in_dictionary(msg)
+
+    # then add it to the stack
+    if response:
+      self.add_to_stack(nick, chan, response)
+
+
+  def add_to_stack(self, nick, chan, response):
+
+    # format the response for checkup
+    formatted = self.format_response(response, nick)
+
+    # if the response already exists return
+    for response in list(self.response_stack):
+      if response['content'] == formatted and response['channel'] == chan:
+        return
+
+    # if the response has just been said in the channel return
+    try:
+      self.last_reply_per_channel[chan]
+    except:
+      self.last_reply_per_channel[chan] = ''
+
+    if self.last_reply_per_channel[chan] == formatted:
+      return
+
+    # add response to the stack
+    self.response_stack.append({
+      'content': formatted,
+      'channel': chan,
+      'timestamp': time.time() + random.randrange(3,7)
+    })
+
+
+  def format_response(self, response, nick):
+    return response.replace('{{sender}}', nick)
+
+
+  def check_in_dictionary(self, msg):
 
     for entry in self.dictionary:
 
       for match in entry['matches']:
+
+        # replace matched up string with our current nickname
         check = match.replace('{{self}}', self.nick)
 
         # remove all strange characters when checking with the dictionary
         if re.sub('[!?@#$,.]', '', msg) == check:
 
-          response = entry['response'].replace('{{sender}}', nick)
+          return entry['response']
 
-          self.reply_stack.append({
-            'content': response,
-            'channel': chan,
-            'timestamp': time.time() + random.randrange(3,7)
-          })
+    return False
