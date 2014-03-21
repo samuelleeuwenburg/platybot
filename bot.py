@@ -6,10 +6,6 @@ from modules import communication
 class Bot:
 
   def __init__(self, conn):
-    f = open('settings.json')
-    self.settings = json.loads(f.read())
-    f.close()
-
     f = open('config.json')
     self.config = json.loads(f.read())
     f.close()
@@ -18,8 +14,8 @@ class Bot:
 
     self.conn = conn
 
-    self.user = self.settings['user']
-    self.nick = self.settings['nick']
+    self.user = self.config['user']
+    self.nick = self.config['nick']
     self.sudo_command = self.config['sudoCommand']
 
     conn.set_user(self.user)
@@ -28,7 +24,7 @@ class Bot:
     for channel in self.channels:
       conn.join_channel(channel)
 
-    self.communication = communication.Communication(self.conn)
+    self.communication = communication.Communication(self.conn, self.nick)
 
     # Add all commands into an array for easy checkups
     self.command_modules = []

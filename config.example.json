@@ -1,4 +1,6 @@
 {
+  "nick": "Platybot",
+  "user": "Platybot Platybot Platybot : Platybot With Electrolocating Powers!\n",
   "server": "irc.freenode.net",
   "sudoCommand": "plat",
   "channels": [

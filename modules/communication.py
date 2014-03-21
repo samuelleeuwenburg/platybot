@@ -5,14 +5,15 @@ import random
 
 
 class Communication:
-  def __init__(self, conn):
+  def __init__(self, conn, nick):
 
-    f = open('./settings.json')
-    self.settings = json.loads(f.read())
+    f = open('./dictionary.json')
+    self.dictionary = json.loads(f.read())
     f.close()
 
-    self.dictionary = self.settings['dictionary']
-    self.nick = self.settings['nick']
+
+    self.replies = self.dictionary['replies']
+    self.nick = nick
     self.conn = conn
 
     self.response_stack = []
@@ -81,14 +82,14 @@ class Communication:
 
   def check_in_dictionary(self, msg):
 
-    for entry in self.dictionary:
+    for entry in self.replies:
 
       for match in entry['matches']:
 
         # replace matched up string with our current nickname
         check = match.replace('{{self}}', self.nick)
 
-        # remove all strange characters when checking with the dictionary
+        # remove all strange characters when checking with the replies
         if re.sub('[!?@#$,.]', '', msg) == check:
 
           return entry['response']

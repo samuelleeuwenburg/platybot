@@ -1,0 +1,105 @@
+{
+  "replies": [
+    {
+      "matches": [
+        "hi {{self}}",
+        "ey {{self}}",
+        "hello {{self}}",
+        "hey {{self}}",
+        "ola {{self}}"
+      ],
+      "response": "Hello, {{sender}}"
+    },
+    {
+      "matches": [
+        "hi plat",
+        "ey plat",
+        "hello plat",
+        "hey plat",
+        "ola plat"
+      ],
+      "response": "Hi, {{sender}}"
+    },
+    {
+      "matches": [
+        "how are you {{self}}",
+        "{{self}}: how are you",
+        "everything alright {{self}}",
+        "{{self}}: everything alright",
+        "you ok {{self}}",
+        "{{self}}: you ok",
+        "you cool {{self}}",
+        "{{self}}: you cool"
+      ],
+      "response": "{{sender}}: No idea really."
+    },
+    {
+      "matches": [
+        "stfu {{self}}",
+        "{{self}}: stfu",
+        "shut up {{self}}",
+        "{{self}}: shut up"
+      ],
+      "response": "You shut up {{sender}}!"
+    },
+    {
+      "matches": [
+        "wtf",
+        "dafuq",
+        "wow"
+      ],
+      "response": "Wtf"
+    },
+    {
+      "matches": [
+        ":P",
+        ":p",
+        "haha",
+        "hahaha"
+      ],
+      "response": ":P"
+    },
+    {
+      "matches": [
+        "bb",
+        "bye",
+        "cya",
+        "cya later",
+        "im off",
+        "gotta go"
+      ],
+      "response": "Bye bye!"
+    },
+    {
+      "matches": [
+        "D:",
+        "oh no"
+      ],
+      "repsonse": "D:"
+    },
+    {
+      "matches": [
+        "^^",
+        "-^",
+        "^-"
+      ],
+      "response": "^^"
+    },
+    {
+      "matches": [
+        ":D",
+        ":)",
+        "yay",
+        "yaay"
+      ],
+      "response": ":D"
+    },
+    {
+      "matches": [
+        ":(",
+        ":'("
+      ],
+      "response": ":'("
+    }
+  ]
+}
