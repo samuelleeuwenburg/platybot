@@ -11,7 +11,6 @@ class Communication:
         self.dictionary = json.loads(f.read())
         f.close()
 
-
         self.replies = self.dictionary['replies']
         self.phrases = self.dictionary['phrases']
         self.nick = nick
@@ -22,7 +21,7 @@ class Communication:
 
         self.random_interval = 0
         self.reset_random_interval()
-
+        
 
     def response_loop(self):
         ''' loop through the reply stack and determine if a message is ready to be send '''
@@ -50,7 +49,7 @@ class Communication:
 
 
     def reset_random_interval(self):	
-        self.random_interval = time.time() + random.randrange(100, 1000);
+        self.random_interval = time.time() + random.randrange(5, 20);
 
     def handle_message(self, nick, chan, msg):
         ''' Handle message and add (optional) response to the reply_stack '''
@@ -99,6 +98,13 @@ class Communication:
     def format_response(self, response, nick):
         return response.replace('{{sender}}', nick)
 
+    def format_phrase(self, phrase):
+        response = phrase.replace('{{random nick}}', 'dude')
+        response = response.replace('{{last nick}}', 'duude')
+
+        return response
+        
+
 
     def dice_response(self, response):
         return 0 == random.randrange(0, response['odds'])
@@ -122,5 +128,11 @@ class Communication:
 
 
     def say_random_phrase(self):
+        print random.choice(self.phrases)['phrase'] 
 
-        print random.choice(self.phrases)
+        phrase = self.format_phrase(random.choice(self.phrases)['phrase'])
+
+        print phrase
+
+        self.conn.send_message('#karmapolice', phrase) 
+        
