@@ -8,7 +8,8 @@
         "hey {{self}}",
         "ola {{self}}"
       ],
-      "response": "Hello, {{sender}}"
+      "response": "Hello, {{sender}}",
+      "odds": 1
     },
     {
       "matches": [
@@ -18,7 +19,8 @@
         "hey plat",
         "ola plat"
       ],
-      "response": "Hi, {{sender}}"
+      "response": "Hi, {{sender}}",
+      "odds": 1
     },
     {
       "matches": [
@@ -31,7 +33,8 @@
         "you cool {{self}}",
         "{{self}}: you cool"
       ],
-      "response": "{{sender}}: No idea really."
+      "response": "{{sender}}: No idea really.",
+      "odds": 1
     },
     {
       "matches": [
@@ -40,7 +43,8 @@
         "shut up {{self}}",
         "{{self}}: shut up"
       ],
-      "response": "You shut up {{sender}}!"
+      "response": "You shut up {{sender}}!",
+      "odds": 1
     },
     {
       "matches": [
@@ -48,7 +52,8 @@
         "dafuq",
         "wow"
       ],
-      "response": "Wtf"
+      "response": "Wtf",
+      "odds": 4
     },
     {
       "matches": [
@@ -57,7 +62,8 @@
         "haha",
         "hahaha"
       ],
-      "response": ":P"
+      "response": ":P",
+      "odds": 4
     },
     {
       "matches": [
@@ -68,14 +74,16 @@
         "im off",
         "gotta go"
       ],
-      "response": "Bye bye!"
+      "response": "Bye bye!",
+      "odds": 1
     },
     {
       "matches": [
         "D:",
         "oh no"
       ],
-      "repsonse": "D:"
+      "repsonse": "D:",
+      "odds": 4
     },
     {
       "matches": [
@@ -83,7 +91,8 @@
         "-^",
         "^-"
       ],
-      "response": "^^"
+      "response": "^^",
+      "odds": 4
     },
     {
       "matches": [
@@ -92,14 +101,36 @@
         "yay",
         "yaay"
       ],
-      "response": ":D"
+      "response": ":D",
+      "odds": 4
     },
     {
       "matches": [
         ":(",
         ":'("
       ],
-      "response": ":'("
+      "response": ":'(",
+      "odds": 4
+    },
+    {
+      "matches": [
+        "pff",
+        "pfff",
+        "hmpff"
+      ],
+      "response": "You tired {{sender}}?",
+      "odds": 4
     }
+  ],
+  "phrases": [
+    {
+      "phrase": "{{last nick}}: OY OY YOU ARE A TOY"
+    },
+    {
+      "phrase": "I sense {{random nick}} is nearby"
+    }
+  ],
+  "events": [
+
   ]
 }
