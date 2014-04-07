@@ -58,13 +58,14 @@ class Bot:
     def update_rooms(self, log):
         print log
         # strip all prefix data before the equals sign
-        chan = log.split('= ')[1].split(' :')[0]
-        users = re.sub('[@&~+%]', '', log.split('= ')[1].split(' :')[1].split('\r\n')[0]).split(' ')
+        if len(log.split('= ')) > 1:
+            chan = log.split('= ')[1].split(' :')[0]
+            users = re.sub('[@&~+%]', '', log.split('= ')[1].split(' :')[1].split('\r\n')[0]).split(' ')
 
-        # set into users_in_channel dict
-        self.users_in_channel[chan] = users
+            # set into users_in_channel dict
+            self.users_in_channel[chan] = users
 
-        print self.users_in_channel
+            print self.users_in_channel
 
     def update_loop(self):
         self.communication.response_loop()
