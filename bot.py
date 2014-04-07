@@ -56,7 +56,6 @@ class Bot:
 
 
     def update_rooms(self, log):
-        print log
         # strip all prefix data before the equals sign
         if len(log.split('= ')) > 1:
             chan = log.split('= ')[1].split(' :')[0]
@@ -85,5 +84,5 @@ class Bot:
                 module.handle_command(self.conn, nick, chan, msg)
                 return
 
-        response = nick + ': what?'
-        self.conn.send_message(chan, response)
+        # response = nick + ': what?'
+        # self.conn.send_message(chan, response)

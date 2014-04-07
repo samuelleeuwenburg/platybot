@@ -56,7 +56,7 @@ class Communication:
         ''' Handle message and add (optional) response to the reply_stack '''
 
         # check the message
-        response = self.check_in_dictionary(msg)
+        response = self.check_in_dictionary(msg.lower())
 
         # then add it to the stack
         if not response:

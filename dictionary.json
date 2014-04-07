@@ -48,6 +48,14 @@
     },
     {
       "matches": [
+        "fuck you {{self}}",
+        "{{self}}: fuck you"
+      ],
+      "response": "{{sender}}: get fucked.",
+      "odds": 1
+    },
+    {
+      "matches": [
         "wtf",
         "dafuq",
         "wow"
