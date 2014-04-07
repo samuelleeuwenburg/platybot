@@ -43,6 +43,9 @@ class Connection:
         self.conn.send('JOIN '+ chan +'\n')
         self.get_users_in_channel(chan)
 
+    def leave_channel(self, chan):
+        self.conn.send('PART '+ chan +'\n')
+
     def set_user(self, user):
         self.conn.send('USER '+ user)
 

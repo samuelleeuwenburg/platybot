@@ -3,6 +3,7 @@ import re
 
 from modules import tmdb
 from modules import communication
+from modules import control
 
 class Bot:
 
@@ -19,6 +20,7 @@ class Bot:
         self.user = self.config['user']
         self.nick = self.config['nick']
         self.sudo_command = self.config['sudoCommand']
+        self.mentors = self.config['mentors']
 
         conn.set_user(self.user)
         conn.set_nick(self.nick)
@@ -32,6 +34,7 @@ class Bot:
         self.command_modules = []
 
         self.command_modules.append(tmdb.MovieCommands())
+        self.command_modules.append(control.Control(self.conn, self.nick, self.mentors))
 
 
 

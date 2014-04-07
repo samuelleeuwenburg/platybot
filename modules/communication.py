@@ -41,8 +41,6 @@ class Communication:
                 # add to last messages dict
                 self.last_reply_per_channel[response['channel']] = response['content']
 
-                # reset random interval, so we dont awkwardly type something straight after
-                self.reset_random_interval()
 
         if self.random_interval < now:
             self.say_random_phrase()
