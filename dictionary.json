@@ -127,16 +127,31 @@
       "phrase": "Has {{random nick}} been here all this time?"
     },
     {
+      "phrase": "I could do with some more coffee"
+    },
+    {
+      "phrase": "Hi {{random nick}}, I'm the keymaster, are you the gatekeeper?"
+    },
+    {
+      "phrase": "so meta"
+    },
+    {
+      "phrase": "{{random nick}} where were you last night?"
+    },
+    {
+      "phrase": "seen the doctor yet {{random nick}}?"
+    },
+    {
       "phrase": "/me shadows {{random nick}}"
     },
     {
-      "phrase": "/me senses {{random nick}}'s movement"
+      "phrase": "/me senses {{random nick}}'s movements"
     },
 		{
-			"phrase": "/me is diving for shells"
+			"phrase": "/me is off diving for shells"
 		},
 		{
-			"phrase": "/me sends his thoughts to {{random nick}}"
+			"phrase": "/me transmits his thoughts to {{random nick}}"
 		}
   ],
   "events": [
