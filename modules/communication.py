@@ -50,7 +50,7 @@ class Communication:
 
 
     def reset_random_interval(self):	
-        self.random_interval = time.time() + random.randrange(10, 20);
+        self.random_interval = time.time() + random.randrange(580, 3600);
 
     def handle_message(self, nick, chan, msg):
         ''' Handle message and add (optional) response to the reply_stack '''
