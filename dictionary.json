@@ -165,9 +165,6 @@
       "phrase": "$ git diff + <meta content=\"width=device-width; initial-scale=1.0\" /> $ git commit -am \"Mobile ready\""
     },
     {
-      "phrase": "\"git push --force\" I got 99 problems but a merge conflict ain't one."
-    },
-    {
       "phrase": "\"git diff\" or \"show me where he touched you\""
     },
     {
@@ -187,6 +184,18 @@
 		},
 		{
 			"phrase": "/me transmits his thoughts to {{random nick}}"
+		},
+		{
+			"phrase": "So many think because Then happened, Now isn't."
+		},
+		{
+			"phrase": "{{random nick}}: I do not agree entirely. Which is to say I do not exactly disagree."
+		},
+		{
+			"phrase": "The paradoxes bug me, and I can learn to love and make love to the paradoxes that bug me. And on really romantic evenings of self, I go salsa dancing with my confusion."
+		},
+		{
+			"phrase": "An assumption develops that you cannot understand life and live life simultaneously. I do not agree entirely. Which is to say I do not exactly disagree. I would say that life understood is life lived. "
 		}
   ],
   "events": [
