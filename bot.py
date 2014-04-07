@@ -26,7 +26,7 @@ class Bot:
         for channel in self.channels:
             conn.join_channel(channel)
 
-        self.communication = communication.Communication(self.conn, self.nick)
+        self.communication = communication.Communication(self.conn, self.nick, self)
 
         # Add all commands into an array for easy checkups
         self.command_modules = []
@@ -56,12 +56,15 @@ class Bot:
 
 
     def update_rooms(self, log):
+        print log
         # strip all prefix data before the equals sign
         chan = log.split('= ')[1].split(' :')[0]
-        users = re.sub('[@&~+%]', '', log.split('= ')[1].split(' :')[1]).split(' ')
+        users = re.sub('[@&~+%]', '', log.split('= ')[1].split(' :')[1].split('\r\n')[0]).split(' ')
 
         # set into users_in_channel dict
         self.users_in_channel[chan] = users
+
+        print self.users_in_channel
 
     def update_loop(self):
         self.communication.response_loop()

@@ -5,7 +5,7 @@ import random
 
 
 class Communication:
-    def __init__(self, conn, nick):
+    def __init__(self, conn, nick, bot):
 
         f = open('./dictionary.json')
         self.dictionary = json.loads(f.read())
@@ -15,6 +15,7 @@ class Communication:
         self.phrases = self.dictionary['phrases']
         self.nick = nick
         self.conn = conn
+        self.bot = bot
 
         self.response_stack = []
         self.last_reply_per_channel = {}
@@ -49,7 +50,7 @@ class Communication:
 
 
     def reset_random_interval(self):	
-        self.random_interval = time.time() + random.randrange(5, 20);
+        self.random_interval = time.time() + random.randrange(450, 1800);
 
     def handle_message(self, nick, chan, msg):
         ''' Handle message and add (optional) response to the reply_stack '''
@@ -98,12 +99,22 @@ class Communication:
     def format_response(self, response, nick):
         return response.replace('{{sender}}', nick)
 
-    def format_phrase(self, phrase):
-        response = phrase.replace('{{random nick}}', 'dude')
-        response = response.replace('{{last nick}}', 'duude')
+    def format_phrase(self, phrase, room):
+        response = phrase.replace('{{random nick}}', self.get_random_nick(room))
+        response = response.replace('{{last nick}}', self.get_random_nick(room))
 
         return response
         
+    def get_random_nick(self, room):
+        # remove the bot from the name list
+        if self.nick in self.bot.users_in_channel[room]:
+            self.bot.users_in_channel[room].remove(self.nick)
+
+        return random.choice(self.bot.users_in_channel[room])
+
+
+    def get_last_nick(self, room):
+        return 'not yet here'
 
 
     def dice_response(self, response):
@@ -128,11 +139,11 @@ class Communication:
 
 
     def say_random_phrase(self):
-        print random.choice(self.phrases)['phrase'] 
 
-        phrase = self.format_phrase(random.choice(self.phrases)['phrase'])
+        # check if we are in a room first.
+        if len(self.bot.users_in_channel) > 0:
+            room = random.choice(self.bot.users_in_channel.keys())
+            phrase = self.format_phrase(random.choice(self.phrases)['phrase'], room)
 
-        print phrase
-
-        self.conn.send_message('#karmapolice', phrase) 
+            self.conn.send_message(room, phrase) 
         

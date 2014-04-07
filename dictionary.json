@@ -124,11 +124,20 @@
   ],
   "phrases": [
     {
-      "phrase": "{{last nick}}: OY OY YOU ARE A TOY"
+      "phrase": "Has {{random nick}} been here all this time?"
     },
     {
-      "phrase": "I sense {{random nick}} is nearby"
-    }
+      "phrase": "/me shadows {{random nick}}"
+    },
+    {
+      "phrase": "/me senses {{random nick}}'s movement"
+    },
+		{
+			"phrase": "/me is diving for shells"
+		},
+		{
+			"phrase": "/me sends his thoughts to {{random nick}}"
+		}
   ],
   "events": [
 
