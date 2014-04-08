@@ -35,6 +35,8 @@ class Communication:
                 # respond
                 self.conn.send_message(response['channel'], response['content'])
 
+                print response['channel'] + ': ' + response['content']
+
                 # remove from the stack
                 self.response_stack.remove(response)
 
@@ -47,14 +49,18 @@ class Communication:
             self.reset_random_interval()
 
 
-    def reset_random_interval(self):	
-        self.random_interval = time.time() + random.randrange(640, 1800);
+    def reset_random_interval(self):
+
+        floor = 400
+        roof = 1200
+
+        self.random_interval = time.time() + random.randrange(floor, roof);
 
     def handle_message(self, nick, chan, msg):
         ''' Handle message and add (optional) response to the reply_stack '''
 
         # check the message
-        response = self.check_in_dictionary(msg.lower())
+        response = self.check_in_dictionary(msg)
 
         # then add it to the stack
         if not response:
@@ -129,7 +135,7 @@ class Communication:
                 check = match.replace('{{self}}', self.nick)
 
                 # remove all strange characters when checking with the replies
-                if re.sub('[!?@#$,.]', '', msg) == check:
+                if re.sub('[!?@#$,.]', '', msg).lower() == check.lower():
 
                     return entry
 

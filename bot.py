@@ -48,14 +48,23 @@ class Bot:
 
             # determine if the sudo command is being used, and act accordingly
             if msg.split(' ', 1)[0] == self.sudo_command:
+                print chan + ': ' + msg
+
                 self.handle_command(nick, chan, msg)
                 return
             else:
+                print chan + ': ' + msg
+
                 self.handle_message(nick, chan, msg)
                 return
 
         if log.find(' 353 ') != -1:
             self.update_rooms(log)
+            return
+
+        if log.find(' PART ') != -1:
+            self.split_room(log)
+            return 
 
 
     def update_rooms(self, log):
@@ -67,7 +76,17 @@ class Bot:
             # set into users_in_channel dict
             self.users_in_channel[chan] = users
 
-            print self.users_in_channel
+            print '$channels: ' + str(self.users_in_channel.keys())
+
+
+    def split_room(self, log):
+        chan = log.split(' PART ')[1]
+       
+        if chan in self.users_in_channel.keys():
+            del self.users_in_channel[chan]
+
+            print '$channels: ' + str(self.users_in_channel.keys())
+
 
     def update_loop(self):
         self.communication.response_loop()
@@ -78,7 +97,6 @@ class Bot:
         self.communication.handle_message(nick, chan, msg)
 
 
-
     def handle_command(self, nick, chan, msg):
         """ Handles commands, based on all command modules registered """
 
@@ -87,5 +105,3 @@ class Bot:
                 module.handle_command(self.conn, nick, chan, msg)
                 return
 
-        # response = nick + ': what?'
-        # self.conn.send_message(chan, response)

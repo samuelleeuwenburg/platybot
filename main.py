@@ -18,11 +18,13 @@ def main():
 
     while True:
         bot.update_loop()
-        log = conn.log()
+        raw_log = conn.log()
 
-        if log:
-            bot.eat_log(log)
-            print(log)
+        if raw_log:
+            logs = raw_log.split('\r\n')
+
+            for log in logs:
+                bot.eat_log(log)
 
 
 if __name__ == '__main__':

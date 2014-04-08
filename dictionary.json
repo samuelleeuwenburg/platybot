@@ -114,6 +114,21 @@
     },
     {
       "matches": [
+        "gl hf",
+				"glhf"
+      ],
+      "response": "gl hf",
+      "odds": 1
+    },
+    {
+      "matches": [
+        "gg"
+      ],
+      "response": "gg",
+      "odds": 1
+    },
+    {
+      "matches": [
         ":(",
         ":'("
       ],
@@ -135,10 +150,34 @@
       "phrase": "Has {{random nick}} been here all this time?"
     },
     {
+      "phrase": "Try again. Fail again. Fail better."
+    },
+    {
+      "phrase": "Where are you from {{random nick}}?" 
+    },
+    {
+      "phrase": "{{random nick}}: favorite language?" 
+    },
+    {
+      "phrase": "I got a humidifier and a de-humidifier... I put them in the same room and let them fight it out."
+    },
+    {
       "phrase": "I could do with some more coffee"
     },
     {
-      "phrase": "Hi {{random nick}}, I'm the keymaster, are you the gatekeeper?"
+      "phrase": "{{random nick}}: I'm the keymaster, are you the gatekeeper?"
+    },
+    {
+      "phrase": "{{random nick}}: want to help add more sentences to my dictionary?"
+    },
+    {
+      "phrase": "{{random nick}}: have you considered using your knowledge for good yet?"
+    },
+    {
+      "phrase": "{{random nick}}: if you could choose a superpower what would it be?"
+    },
+    {
+      "phrase": "tyil: thanks for letting me live on your server :3"
     },
     {
       "phrase": "so meta"
@@ -156,15 +195,6 @@
       "phrase": "/me is #codingforpussy"
     },
     {
-      "phrase": "PHP = PreHistoric Programming"
-    },
-    {
-      "phrase": "I heard jQuery launched a credit card called \"technical debt\"."
-    },
-    {
-      "phrase": "$ git diff + <meta content=\"width=device-width; initial-scale=1.0\" /> $ git commit -am \"Mobile ready\""
-    },
-    {
       "phrase": "\"git diff\" or \"show me where he touched you\""
     },
     {
@@ -172,6 +202,9 @@
     },
     {
       "phrase": "I aliased sudo to yolo"
+    },
+    {
+      "phrase": "Souds like someone needs a hug"
     },
     {
       "phrase": "/me shadows {{random nick}}"
@@ -183,19 +216,10 @@
 			"phrase": "/me is off diving for shells"
 		},
 		{
-			"phrase": "/me transmits his thoughts to {{random nick}}"
-		},
-		{
 			"phrase": "So many think because Then happened, Now isn't."
 		},
 		{
-			"phrase": "{{random nick}}: I do not agree entirely. Which is to say I do not exactly disagree."
-		},
-		{
-			"phrase": "The paradoxes bug me, and I can learn to love and make love to the paradoxes that bug me. And on really romantic evenings of self, I go salsa dancing with my confusion."
-		},
-		{
-			"phrase": "An assumption develops that you cannot understand life and live life simultaneously. I do not agree entirely. Which is to say I do not exactly disagree. I would say that life understood is life lived. "
+			"phrase": "I do not agree entirely. Which is to say I do not exactly disagree."
 		}
   ],
   "events": [
