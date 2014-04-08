@@ -4,7 +4,7 @@ class Control:
     def __init__(self, conn, nick, mentors):
 
         self.name = 'control'
-        self.command = 'do '
+        self.command = 'please '
 
         self.conn = conn
         self.nick = nick
