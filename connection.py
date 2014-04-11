@@ -10,10 +10,10 @@ class Connection:
 
         self.server = self.config['server']
         self.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.conn.settimeout(0.1)
 
     def connect(self):
-        self.conn.connect((self.server, 6667))
+	self.conn.connect((self.server, 6667))
+        self.conn.settimeout(0.1)
 
     def log(self):
 
