@@ -143,11 +143,32 @@
       ],
       "response": "You tired {{sender}}?",
       "odds": 4
+    },
+    {
+      "matches": [
+        "{{self}}: are you there?",
+        "are you there {{self}}",
+        "Still alive {{self}}?",
+        "{{self}}: Still alive"
+      ],
+      "response": "/me yawns",
+      "odds": 4
+    },
+    {
+      "matches": [
+        "can you give me one?",
+        "can i have one?"
+      ],
+      "response": "{{sender}}: if the price is right",
+      "odds": 1
     }
   ],
   "phrases": [
     {
       "phrase": "Has {{random nick}} been here all this time?"
+    },
+    {
+      "phrase": "{{random nick}}: Dude, I dream about you"
     },
     {
       "phrase": "Try again. Fail again. Fail better."
@@ -168,9 +189,6 @@
       "phrase": "{{random nick}}: I'm the keymaster, are you the gatekeeper?"
     },
     {
-      "phrase": "{{random nick}}: want to help add more sentences to my dictionary?"
-    },
-    {
       "phrase": "{{random nick}}: have you considered using your knowledge for good yet?"
     },
     {
@@ -183,19 +201,7 @@
       "phrase": "so meta"
     },
     {
-      "phrase": "To add lines is human, to delete divine"
-    },
-    {
-      "phrase": "TIL the movie Inception was based on node.js callbacks"
-    },
-    {
-      "phrase": "I use luck instead of tests."
-    },
-    {
       "phrase": "/me is #codingforpussy"
-    },
-    {
-      "phrase": "\"git diff\" or \"show me where he touched you\""
     },
     {
       "phrase": "{{random nick}} where were you last night?"
@@ -204,10 +210,16 @@
       "phrase": "I aliased sudo to yolo"
     },
     {
-      "phrase": "Souds like someone needs a hug"
+      "phrase": "Sounds like someone needs a hug"
     },
     {
       "phrase": "/me shadows {{random nick}}"
+    },
+    {
+      "phrase": "{{random nick}}: YOU MUST CONSTRUCT ADDITIONAL PYLONS!"
+    },
+    {
+      "phrase": "{{random nick}}: out of bronze yet? "
     },
     {
       "phrase": "/me senses {{random nick}}'s movements"

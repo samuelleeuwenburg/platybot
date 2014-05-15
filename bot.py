@@ -27,7 +27,7 @@ class Bot:
 
         for channel in self.channels:
             conn.join_channel(channel)
-
+	
         self.communication = communication.Communication(self.conn, self.nick, self)
 
         # Add all commands into an array for easy checkups
@@ -35,7 +35,6 @@ class Bot:
 
         self.command_modules.append(tmdb.MovieCommands())
         self.command_modules.append(control.Control(self.conn, self.nick, self.mentors))
-
 
 
     def eat_log(self, log):

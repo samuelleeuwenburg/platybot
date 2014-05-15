@@ -3,7 +3,6 @@ import json
 import re
 import random
 
-
 class Communication:
     def __init__(self, conn, nick, bot):
 
@@ -51,8 +50,8 @@ class Communication:
 
     def reset_random_interval(self):
 
-        floor = 400
-        roof = 1200
+        floor = 420
+        roof = 4200
 
         self.random_interval = time.time() + random.randrange(floor, roof);
 

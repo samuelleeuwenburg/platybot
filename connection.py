@@ -21,7 +21,9 @@ class Connection:
             log = self.conn.recv(2048)
         except socket.timeout, e:
             return
-
+	
+        log = log.decode('utf8', 'ignore')
+        log = log.encode('ascii', 'ignore')
         log = log.strip('\n\r')
 
         # check to see if the server is pinging us, if so respond.
@@ -34,6 +36,7 @@ class Connection:
         self.conn.send('PONG :pingis\n')
 
     def send_message(self, chan, msg):
+        msg = msg.encode('ascii', 'ignore')
         self.conn.send('PRIVMSG ' + chan + ' :' + msg + '\n')
 
     def get_users_in_channel(self, chan):
